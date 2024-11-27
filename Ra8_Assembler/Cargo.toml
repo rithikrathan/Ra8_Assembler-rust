@@ -1,0 +1,6 @@
+[package]
+name = "Ra8_Assembler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

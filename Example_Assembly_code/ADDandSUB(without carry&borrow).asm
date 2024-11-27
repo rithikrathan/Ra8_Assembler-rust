@@ -1,0 +1,9 @@
+LDI 0x04 
+MOV B A 
+
+LDA 0x06
+ADD B
+STA 0x00 
+SUB B
+STA 0x01
+HLT
