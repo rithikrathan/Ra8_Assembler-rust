@@ -9,12 +9,6 @@ fn main() -> io::Result<()> {
     //     "0x0053", "0x0054", "0x0055", "0x0056", "0x0057", "0x0058", "0x0059",
     // ];
     // println!("{:?}", _3byteInstructions);
-
-    // lexer(String::from("$LOOP: MOV B A ;this is a comment"));
-    // lexer(String::from("MOV B A ;this is a comment"));
-    // lexer(String::from("LDI 0x4000 ;this is a comment"));
-    // lexer(String::from("CMP ;this is a comment"));
-
     let filename =
         "/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Example_Assembly_code/FACTORIAL.asm"; //PUT THE FILE PATH OF THE ASSEMBLY CODE
     let file = File::open(filename)?;
@@ -29,54 +23,43 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 
-// fn lexer(line: String) -> HashMap<&str, String> {
 fn lexer(line: String) {
     //ignore empty lines
     if line.trim().is_empty() {
         return;
     }
 
-    let mut token = HashMap::new();
-    let mut string = line;
-    //handle comments and remove them from the program line
+    let mut token = HashMap::new(); //the hashmap in which all the tokens will be stored
+    let mut string = line.clone(); //the string that will under go tokenizations
+    let strrrr = line.clone(); //input string of the assembly program line
+                               //STAGE1: handle comments and remove them from the program line
     if let Some(pos) = string.find(";") {
         string.truncate(pos);
     }
-    //handle label definitions
+    //STAGE2: handle label definitions
     if let (Some(spos), Some(cpos)) = (string.find("$"), string.find(":")) {
         if spos < cpos {
             let label = string[spos + 1..cpos].to_string();
-            string = string[cpos + 1..].to_string();
+            string = string[cpos + 2..].to_string();
             // token.insert("Instruction", string);
             token.insert("Label", label);
+        } else{
+            eprintln!("Error: invalid use ':' in {:?}", strrrr);
         }
     }
-    //handle instructions
-    let parts: Vec<&str> = string.split_whitespace().collect();
-
-    let mut opcode = "";
-    let mut arg1: Option<String> = None;
-    let mut arg2: Option<String> = None;
-
-    match parts.as_slice() {
-        [op] => {
-            opcode = op;
-        }
-        [op, a1] => {
-            opcode = op;
-            arg1 = Some(a1.to_string());
-        }
-        [op, a1, a2] => {
-            opcode = op;
-            arg1 = Some(a1.to_string());
-            arg2 = Some(a2.to_string());
-        }
-        _ => {
-            eprintln!("Invalid instruction format.")
-        }
+    //STAGE3: handle instructions,immediate values and references
+    if let Some(zpos) = string.find("0x") {
+        let hex = string[zpos..].trim().to_string();
+        string.truncate(zpos - 1);
+        token.insert("Instruction", string.clone());
+        token.insert("Hex", hex);
+    } else if let Some(apos) = string.clone().find("$") {
+        let reff = string[1 + apos..].trim().to_string();
+        string.truncate(apos - 1);
+        token.insert("Instruction", string);
+        token.insert("Ref", reff);
+    } else {
+        token.insert("Instruction", string.trim().to_string());
     }
-    token.insert("opcode", opcode.to_string());
-    token.insert("arg1", arg1.unwrap_or_default());
-    token.insert("arg2", arg2.unwrap_or_default());
-    println!("{:?}", token)
+    println!("{:?} => {:?}", strrrr, token);
 }
