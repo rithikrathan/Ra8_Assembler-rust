@@ -1,1 +1,1 @@
-/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Ra8_Assembler/target/debug/Ra8_Assembler: /home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Ra8_Assembler/src/main.rs
+/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Ra8_Assembler/target/debug/Ra8_Assembler: /home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Ra8_Assembler/Instructions.json /home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Ra8_Assembler/src/main.rs

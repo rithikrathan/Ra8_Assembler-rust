@@ -1,0 +1,797 @@
+[
+    {
+        "INSTRUCTION": "NOPE",
+        "MACHINE CODE": "0x0000",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "HLT",
+        "MACHINE CODE": "0x0001",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A B",
+        "MACHINE CODE": "0x0002",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A C",
+        "MACHINE CODE": "0x0003",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A D",
+        "MACHINE CODE": "0x0004",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A H",
+        "MACHINE CODE": "0x0005",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A L",
+        "MACHINE CODE": "0x0006",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV A M",
+        "MACHINE CODE": "0x0007",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B A",
+        "MACHINE CODE": "0x0008",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B C",
+        "MACHINE CODE": "0x0009",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B D",
+        "MACHINE CODE": "0x000A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B H",
+        "MACHINE CODE": "0x000B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B L",
+        "MACHINE CODE": "0x000C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV B M",
+        "MACHINE CODE": "0x000D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C A",
+        "MACHINE CODE": "0x000E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C B",
+        "MACHINE CODE": "0x000F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C D",
+        "MACHINE CODE": "0x0010",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C H",
+        "MACHINE CODE": "0x0011",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C L",
+        "MACHINE CODE": "0x0012",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV C M",
+        "MACHINE CODE": "0x0013",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D A",
+        "MACHINE CODE": "0x0014",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D B",
+        "MACHINE CODE": "0x0015",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D C",
+        "MACHINE CODE": "0x0016",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D H",
+        "MACHINE CODE": "0x0017",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D L",
+        "MACHINE CODE": "0x0018",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV D M",
+        "MACHINE CODE": "0x0019",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H A",
+        "MACHINE CODE": "0x001A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H B",
+        "MACHINE CODE": "0x001B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H C",
+        "MACHINE CODE": "0x001C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H D",
+        "MACHINE CODE": "0x001D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H L",
+        "MACHINE CODE": "0x001E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV H M",
+        "MACHINE CODE": "0x001F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L A",
+        "MACHINE CODE": "0x0020",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L B",
+        "MACHINE CODE": "0x0021",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L C",
+        "MACHINE CODE": "0x0022",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L D",
+        "MACHINE CODE": "0x0023",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L H",
+        "MACHINE CODE": "0x0024",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV L M",
+        "MACHINE CODE": "0x0025",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M A",
+        "MACHINE CODE": "0x0026",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M B",
+        "MACHINE CODE": "0x0027",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M C",
+        "MACHINE CODE": "0x0028",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M D",
+        "MACHINE CODE": "0x0029",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M H",
+        "MACHINE CODE": "0x002A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MOV M L",
+        "MACHINE CODE": "0x002B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "MVI B",
+        "MACHINE CODE": "0x002C",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "MVI C",
+        "MACHINE CODE": "0x002D",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "MVI D",
+        "MACHINE CODE": "0x002E",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "MVI H",
+        "MACHINE CODE": "0x002F",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "MVI L",
+        "MACHINE CODE": "0x0030",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "MVI M",
+        "MACHINE CODE": "0x0031",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "LDA",
+        "MACHINE CODE": "0x0032",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "LDI",
+        "MACHINE CODE": "0x0033",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "STR B",
+        "MACHINE CODE": "0x0034",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "STR C",
+        "MACHINE CODE": "0x0035",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "STR D",
+        "MACHINE CODE": "0x0036",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "STR M",
+        "MACHINE CODE": "0x0037",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "STA",
+        "MACHINE CODE": "0x0038",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "PUSH A",
+        "MACHINE CODE": "0x0039",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "PUSH B",
+        "MACHINE CODE": "0x003A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "PUSH C",
+        "MACHINE CODE": "0x003B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "PUSH D",
+        "MACHINE CODE": "0x003C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "PUSH M",
+        "MACHINE CODE": "0x003D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "POP A",
+        "MACHINE CODE": "0x003E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "POP B",
+        "MACHINE CODE": "0x003F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "POP C",
+        "MACHINE CODE": "0x0040",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "POP D",
+        "MACHINE CODE": "0x0041",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "POP M",
+        "MACHINE CODE": "0x0042",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "LDX",
+        "MACHINE CODE": "0x0043",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "STX",
+        "MACHINE CODE": "0x0044",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "LDHL",
+        "MACHINE CODE": "0x0045",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "PCHL",
+        "MACHINE CODE": "0x0046",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SPHL",
+        "MACHINE CODE": "0x0047",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "JMP",
+        "MACHINE CODE": "0x0048",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JC ",
+        "MACHINE CODE": "0x0049",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JNC",
+        "MACHINE CODE": "0x004A",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JZ",
+        "MACHINE CODE": "0x004B",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JNZ",
+        "MACHINE CODE": "0x004C",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JP",
+        "MACHINE CODE": "0x004D",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JM",
+        "MACHINE CODE": "0x004E",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JE",
+        "MACHINE CODE": "0x004F",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "JO",
+        "MACHINE CODE": "0x0050",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CALL",
+        "MACHINE CODE": "0x0051",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CC",
+        "MACHINE CODE": "0x0052",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CNC",
+        "MACHINE CODE": "0x0053",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CZ",
+        "MACHINE CODE": "0x0054",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CNZ",
+        "MACHINE CODE": "0x0055",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CE",
+        "MACHINE CODE": "0x0056",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CO",
+        "MACHINE CODE": "0x0057",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CP",
+        "MACHINE CODE": "0x0058",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "CM",
+        "MACHINE CODE": "0x0059",
+        "BYTES": 3
+    },
+    {
+        "INSTRUCTION": "RET",
+        "MACHINE CODE": "0x005A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RC",
+        "MACHINE CODE": "0x005B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RNC",
+        "MACHINE CODE": "0x005C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RZ",
+        "MACHINE CODE": "0x005D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RNZ",
+        "MACHINE CODE": "0x005E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RP",
+        "MACHINE CODE": "0x005F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RM",
+        "MACHINE CODE": "0x0060",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RE",
+        "MACHINE CODE": "0x0061",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RO",
+        "MACHINE CODE": "0x0062",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADD B",
+        "MACHINE CODE": "0x0063",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADD C",
+        "MACHINE CODE": "0x0064",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADD D",
+        "MACHINE CODE": "0x0065",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADD M",
+        "MACHINE CODE": "0x0066",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADC B",
+        "MACHINE CODE": "0x0067",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADC C",
+        "MACHINE CODE": "0x0068",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADC D",
+        "MACHINE CODE": "0x0069",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADC M",
+        "MACHINE CODE": "0x006A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ADI",
+        "MACHINE CODE": "0x006B",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "SUB B",
+        "MACHINE CODE": "0x006C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUB C",
+        "MACHINE CODE": "0x006D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUB D",
+        "MACHINE CODE": "0x006E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUB M",
+        "MACHINE CODE": "0x006F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUC B",
+        "MACHINE CODE": "0x0070",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUC C",
+        "MACHINE CODE": "0x0071",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUC D",
+        "MACHINE CODE": "0x0072",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUC M",
+        "MACHINE CODE": "0x0073",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "SUI",
+        "MACHINE CODE": "0x0074",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "INC B",
+        "MACHINE CODE": "0x0075",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "INC C",
+        "MACHINE CODE": "0x0076",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "INC D",
+        "MACHINE CODE": "0x0077",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "INC M",
+        "MACHINE CODE": "0x0078",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "DCR B",
+        "MACHINE CODE": "0x0079",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "DCR C",
+        "MACHINE CODE": "0x007A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "DCR D",
+        "MACHINE CODE": "0x007B",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "DCR M",
+        "MACHINE CODE": "0x007C",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "INX",
+        "MACHINE CODE": "0x007D",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "DCX",
+        "MACHINE CODE": "0x007E",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RS",
+        "MACHINE CODE": "0x007F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "AS",
+        "MACHINE CODE": "0x0080",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "LS",
+        "MACHINE CODE": "0x0081",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ALS",
+        "MACHINE CODE": "0x0082",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "LR",
+        "MACHINE CODE": "0x0083",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ALR",
+        "MACHINE CODE": "0x0084",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "RR",
+        "MACHINE CODE": "0x0085",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ARR",
+        "MACHINE CODE": "0x0086",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "AND B",
+        "MACHINE CODE": "0x0087",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "AND C",
+        "MACHINE CODE": "0x0088",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "AND D",
+        "MACHINE CODE": "0x0089",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "AND M",
+        "MACHINE CODE": "0x008A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ANI",
+        "MACHINE CODE": "0x008B",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "OR B",
+        "MACHINE CODE": "0x008F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "OR C",
+        "MACHINE CODE": "0x0090",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "OR D",
+        "MACHINE CODE": "0x0091",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "OR M",
+        "MACHINE CODE": "0x0092",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "ORI",
+        "MACHINE CODE": "0x0093",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "XOR B",
+        "MACHINE CODE": "0x0097",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "XOR C",
+        "MACHINE CODE": "0x0098",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "XOR D",
+        "MACHINE CODE": "0x0099",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "XOR M",
+        "MACHINE CODE": "0x009A",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "XRI",
+        "MACHINE CODE": "0x009B",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "CMP B",
+        "MACHINE CODE": "0x009F",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CMP C",
+        "MACHINE CODE": "0x00A0",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CMP D",
+        "MACHINE CODE": "0x00A1",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CMP M",
+        "MACHINE CODE": "0x00A2",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CMI",
+        "MACHINE CODE": "0x00A3",
+        "BYTES": 2
+    },
+    {
+        "INSTRUCTION": "CMC",
+        "MACHINE CODE": "0x00A7",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "STC",
+        "MACHINE CODE": "0x00A8",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CLC",
+        "MACHINE CODE": "0x00A9",
+        "BYTES": 1
+    },
+    {
+        "INSTRUCTION": "CMA",
+        "MACHINE CODE": "0x00AA",
+        "BYTES": 1
+    }
+]

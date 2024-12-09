@@ -1,38 +1,19 @@
+use serde::Deserialize;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
+use std::string::String;
 
-fn main() -> io::Result<()> {
-    // let mut _3byteInstructions = vec![
-    //     "0x0032", "0x0034", "0x0035", "0x0036", "0x0037", "0x0038", "0x0045", "0x0048", "0x0049",
-    //     "0x004A", "0x004B", "0x004C", "0x004D", "0x004E", "0x004F", "0x0050", "0x0051", "0x0052",
-    //     "0x0053", "0x0054", "0x0055", "0x0056", "0x0057", "0x0058", "0x0059",
-    // ];
-    // println!("{:?}", _3byteInstructions);
-    let filename =
-        "/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Example_Assembly_code/FACTORIAL.asm"; //PUT THE FILE PATH OF THE ASSEMBLY CODE
-    let file = File::open(filename)?;
-    let reader = BufReader::new(file);
-    for line in reader.lines() {
-        match line {
-            Ok(line_content) => lexer(line_content),
-            Err(e) => eprintln!("Error reading line: {}", e),
-        }
-    }
-
-    Ok(())
-}
-
-fn lexer(line: String) {
-    //ignore empty lines
-    if line.trim().is_empty() {
-        return;
-    }
-
+fn lexer(line: String) -> HashMap<&'static str, String> {
     let mut token = HashMap::new(); //the hashmap in which all the tokens will be stored
     let mut string = line.clone(); //the string that will under go tokenizations
-    let strrrr = line.clone(); //input string of the assembly program line
-                               //STAGE1: handle comments and remove them from the program line
+    let strrrr = line.clone(); //the string that will under go tokenizations
+
+    //ignore empty lines
+    if line.trim().is_empty() {
+        return token;
+    }
+    //STAGE1: handle comments and remove them from the program line
     if let Some(pos) = string.find(";") {
         string.truncate(pos);
     }
@@ -43,7 +24,7 @@ fn lexer(line: String) {
             string = string[cpos + 2..].to_string();
             // token.insert("Instruction", string);
             token.insert("Label", label);
-        } else{
+        } else {
             eprintln!("Error: invalid use ':' in {:?}", strrrr);
         }
     }
@@ -61,5 +42,59 @@ fn lexer(line: String) {
     } else {
         token.insert("Instruction", string.trim().to_string());
     }
-    println!("{:?} => {:?}", strrrr, token);
+    // println!("{:?} => {:?}", strrrr, token);
+    return token;
+}
+
+fn Codegen(tokens: Vec<HashMap<&str, String>>, instruction_table: Vec<Opcodes>) {
+    for token in tokens {
+        if let Some(instr) = instruction_table
+            .iter()
+            .find(|instr| instr.instruction == *token.get("Instruction").unwrap_or(&"".to_string()))
+        // Dereferencing the Option
+        {
+            println!("Found instruction: {:?}", instr);
+            // Do something with `instr`, e.g., print the machine code
+            println!("Machine Code: {}", instr.machine_code);
+        }
+    }
+}
+
+#[derive(Debug, Deserialize)]
+struct Opcodes {
+    #[serde(rename = "INSTRUCTION")]
+    instruction: String,
+    #[serde(rename = "MACHINE CODE")]
+    machine_code: String,
+    #[serde(rename = "BYTES")]
+    bytes: u8,
+}
+
+fn main() -> io::Result<()> {
+    //~~~~~~~~~~~~LOADS THE ASSEMBLY FILE~~~~~~~~~~~~~//
+
+    let mut tokens: Vec<HashMap<&'static str, String>> = Vec::new();
+    let filename ="/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Example_Assembly_code/FACTORIAL.asm"; //PUT THE FILE PATH OF THE ASSEMBLY CODE
+    let file = File::open(filename)?;
+    let reader = BufReader::new(file);
+    for line in reader.lines() {
+        match line {
+            Ok(line_content) => {
+                let token = lexer(line_content);
+                tokens.push(token);
+            }
+            Err(e) => eprintln!("Error reading line: {}", e),
+        }
+    }
+
+    //~~~~~~~~~~~~LOADS INSTRUCTIONS TABLE~~~~~~~~~~~~~//
+
+    const JSON_DATA: &[u8] = include_bytes!("../Instructions.json");
+    let instruction_table: Vec<Opcodes> =
+        serde_json::from_slice(JSON_DATA).expect("Failed to parse JSON");
+
+    //~~~~~~~~~~~~DOES SOMETHING WITH IT~~~~~~~~~~~~~~~//
+    Codegen(tokens, instruction_table);
+
+    Ok(())
 }
