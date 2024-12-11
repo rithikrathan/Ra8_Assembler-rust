@@ -8,7 +8,7 @@ def csv_to_list_of_dicts(csv_filename):
         # DictReader automatically uses the header row as keys
         csvreader = csv.DictReader(csvfile)
         data = []
-        
+
         # Loop through each row in the CSV
         for row in csvreader:
             # Convert fields that are meant to be integers
@@ -16,7 +16,7 @@ def csv_to_list_of_dicts(csv_filename):
                 if value.isdigit():  # Check if the value is an integer
                     row[key] = int(value)  # Convert to integer
             data.append(row)
-        
+
         return data
 
 def save_json(data, json_filename):
