@@ -1,7 +1,8 @@
 use serde::Deserialize;
 use std::collections::HashMap;
+use std::env;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Write};
 use std::string::String;
 use std::u16;
 
@@ -83,7 +84,8 @@ fn codegen(
     tokens: &Vec<HashMap<&str, String>>,
     instruction_table: &Vec<Opcodes>,
     label_tabel: &HashMap<String, u16>,
-) {
+    output_file: &mut File,
+) -> io::Result<()> {
     let _3byte_instructions = vec![
         "0x0032", "0x0034", "0x0035", "0x0036", "0x0037", "0x0038", "0x0045", "0x0048", "0x0049",
         "0x004A", "0x004B", "0x004C", "0x004D", "0x004E", "0x004F", "0x0050", "0x0051", "0x0052",
@@ -96,6 +98,7 @@ fn codegen(
             .find(|instr| instr.instruction == *token.get("Instruction").unwrap_or(&"".to_string()))
         {
             //for every new instruction first print its machine code
+            writeln!(output_file, "{}", instr.machine_code)?;
             println!("{}", instr.machine_code);
             //after printing the machine code check if the immediate value exitsts and if it does
             //then and it is an 8bit value then print it as it is, if it is a 16bit value then
@@ -104,11 +107,14 @@ fn codegen(
                 if _3byte_instructions.contains(&instr.machine_code.as_str()) {
                     let hex_val: u16 =
                         u16::from_str_radix(hex.trim_start_matches("0x"), 16).unwrap();
-                    let highbyte = hex_val >> 8;
+                    let highbyte = (hex_val >> 8) & 255;
                     let lowbyte = hex_val & 255;
+                    writeln!(output_file, "{}", format!("0x{:04X}", lowbyte));
+                    writeln!(output_file, "{}", format!("0x{:04X}", highbyte));
                     println!("{}", format!("0x{:04X}", lowbyte));
                     println!("{}", format!("0x{:04X}", highbyte));
                 } else {
+                    writeln!(output_file, "{}", hex);
                     println!("{}", hex);
                 }
             }
@@ -118,12 +124,15 @@ fn codegen(
         if let Some(reference) = token.get("Ref") {
             let addr: u16 = *label_tabel.get(reference).unwrap();
             // println!("{:?}", addr);
-            let highbyte = addr >> 8;
+            let highbyte = (addr >> 8) & 255;
             let lowbyte = addr & 255;
+            writeln!(output_file, "{}", format!("0x{:04X}", lowbyte));
+            writeln!(output_file, "{}", format!("0x{:04X}", highbyte));
             println!("{}", format!("0x{:04X}", lowbyte));
             println!("{}", format!("0x{:04X}", highbyte));
         }
     }
+    Ok(())
 }
 
 #[derive(Debug, Deserialize)]
@@ -139,10 +148,19 @@ struct Opcodes {
 fn main() -> io::Result<()> {
     //~~~~~~~~~~~~LOADS THE ASSEMBLY FILE~~~~~~~~~~~~~//
 
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() < 2 {
+        eprintln!("Usage: {} <Input_file_path> <Output_file_name>", args[0]);
+        std::process::exit(1);
+    }
+
+    let input_file_path = &args[1];
+    let output_file_name = &args[2];
     let mut tokens: Vec<HashMap<&'static str, String>> = Vec::new();
-    let filename ="/home/rathanthegreatlol/Desktop/projects/Ra8_Assembler/Example_Assembly_code/FACTORIAL.asm"; //PUT THE FILE PATH OF THE ASSEMBLY CODE
-    let file = File::open(filename)?;
+    let file = File::open(input_file_path)?;
     let reader = BufReader::new(file);
+
     for line in reader.lines() {
         match line {
             Ok(line_content) => {
@@ -160,7 +178,9 @@ fn main() -> io::Result<()> {
         serde_json::from_slice(JSON_DATA).expect("Failed to parse JSON");
 
     //~~~~~~~~~~~~DOES SOMETHING WITH IT~~~~~~~~~~~~~~~//
-    let labelTabel = set_label_table(&tokens, &instruction_table);
-    codegen(&tokens, &instruction_table, &labelTabel);
+
+    let mut output_file = File::create(output_file_name)?;
+    let label_table = set_label_table(&tokens, &instruction_table);
+    codegen(&tokens, &instruction_table, &label_table, &mut output_file);
     Ok(())
 }
